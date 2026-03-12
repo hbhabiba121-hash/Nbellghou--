@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, MapPin, User, LogOut, LayoutDashboard, FilePlus, List, Globe, Home } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useAuth } from '@/context/AuthContext';
+import logo from '@/assets/logo.png'; 
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,7 +54,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link to={isAuthenticated ? (user?.role === 'admin' ? '/admin' : '/dashboard') : '/map'} className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C1272D] to-[#E85A5F] flex items-center justify-center shadow-lg shadow-red-500/20 group-hover:shadow-red-500/30 transition-shadow">
-              <MapPin className="w-5 h-5 text-white" />
+              <img src={logo} alt="Nbellghou Logo"className="w-20 h-20 object-contain"/>
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg text-gray-900 leading-none tracking-tight">

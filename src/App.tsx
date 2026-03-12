@@ -4,6 +4,7 @@ import { LanguageProvider, useLanguage } from '@/context/LanguageContext';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
 import { TicketsProvider } from '@/context/TicketsContext';
 
+
 // Pages
 import SplashScreen from '@/pages/SplashScreen';
 import AuthPage from '@/pages/AuthPage';

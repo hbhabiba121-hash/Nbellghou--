@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MapPin } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import logo from '@/assets/logo.png'; 
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -67,7 +68,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
           
           {/* Logo */}
           <div className="relative w-24 h-24 bg-gradient-to-br from-[#C1272D] to-[#E85A5F] rounded-3xl flex items-center justify-center shadow-2xl shadow-red-500/30 animate-fade-in-up">
-            <MapPin className="w-12 h-12 text-white" strokeWidth={2.5} />
+            <img src={logo} alt="Nbellghou Logo" className="w-20 h-20 object-contain"/>
           </div>
         </div>
 
