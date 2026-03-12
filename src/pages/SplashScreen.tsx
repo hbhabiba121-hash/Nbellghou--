@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MapPin } from 'lucide-react';
+
 import { useLanguage } from '@/context/LanguageContext';
 import logo from '@/assets/logo.png'; 
 
