@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Moroccan Flag Colors - Modern SaaS Palette */
+    --moroccan-red: #C1272D;
+    --moroccan-green: #006233;
+    --moroccan-red-light: #E85A5F;
+    --moroccan-green-light: #1A8C5C;
+    
+    /* Modern SaaS Background */
+    --background: 0 0% 97.6%; /* #F7F8FA */
+    --foreground: 220 15% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 20%;
+    --primary: 357 67% 46%; /* #C1272D */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 150 100% 19%; /* #006233 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 210 100% 56%; /* Soft blue */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 357 67% 46%;
+    --radius: 1rem;
+    
+    /* Status Colors */
+    --status-reported: #DC2626;
+    --status-progress: #F97316;
+    --status-resolved: #16A34A;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  [dir="rtl"] body {
+    font-family: 'Noto Sans Arabic', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  ::selection {
+    background-color: rgba(193, 39, 45, 0.2);
+    color: #C1272D;
+  }
+}
+
+@layer utilities {
+  /* Modern SaaS Card Styles */
+  .card-modern {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-modern:hover {
+    @apply shadow-lg;
+    transform: translateY(-2px);
+  }
+  
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, #C1272D 0%, #E85A5F 100%);
+  }
+  
+  .gradient-secondary {
+    background: linear-gradient(135deg, #006233 0%, #1A8C5C 100%);
+  }
+  
+  .gradient-hero {
+    background: linear-gradient(135deg, #F7F8FA 0%, #FFFFFF 50%, #F0FDF4 100%);
+  }
+  
+  /* Status badges */
+  .badge-reported {
+    @apply bg-red-50 text-red-600 border border-red-100;
+  }
+  
+  .badge-progress {
+    @apply bg-orange-50 text-orange-600 border border-orange-100;
+  }
+  
+  .badge-resolved {
+    @apply bg-green-50 text-green-600 border border-green-100;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Button shine effect */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-shine:hover::after {
+    left: 100%;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #F7F8FA;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #D1D5DB;
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9CA3AF;
+  }
+  
+  /* Line clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Animation keyframes */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+  
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+  
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+/* Leaflet Map Custom Styles */
+.leaflet-container {
+  font-family: 'Inter', sans-serif;
+  z-index: 1;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Marker Styles */
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .leaflet-control-zoom {
+  left: 10px;
+  right: auto;
+}
+
+/* Focus styles */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(193, 39, 45, 0.1);
+  border-color: #C1272D;
+}
+
+/* Drag and drop zone */
+.drop-zone {
+  border: 2px dashed #E5E7EB;
+  transition: all 0.3s ease;
+}
+
+.drop-zone:hover, .drop-zone.drag-over {
+  border-color: #C1272D;
+  background: rgba(193, 39, 45, 0.02);
+}
+
+/* Table styles */
+.table-modern {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-modern th {
+  @apply text-xs font-semibold text-gray-500 uppercase tracking-wider;
+  padding: 12px 16px;
+}
+
+.table-modern td {
+  @apply text-sm text-gray-700;
+  padding: 16px;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.table-modern tr:hover td {
+  background: #F9FAFB;
+}
